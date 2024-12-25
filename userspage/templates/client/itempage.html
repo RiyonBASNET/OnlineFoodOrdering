@@ -1,0 +1,135 @@
+{% extends 'client/layouts.html' %}
+{% load static %}
+
+{% block title %}
+<title>Doge Foods || Menu</title>
+{% endblock %}
+
+{% block main_content %}
+<!-- Item filter form -->
+<!-- <div class="container filter-box">
+    <form>
+        {{item_filter.form}}
+        <button class="btn btn-success">Search</button>
+    </form>
+</div> -->
+<!-- Item filter form -->
+<!-- main body  -->
+<div class="container mt-3 ">
+    <h1 class="text-muted text-center heading">Our Menu Items</h1>
+    <br class="horizon">
+    <div class="row">
+        <div class="col-2 all-items">
+            <h2 class="text-white">All Items</h2>
+            <ul style="text-decoration:none;">
+                <li><a href="#burger">Burgers</a></li>
+                <li><a href="#sandwich">Sandwiches</a></li>
+                <li><a href="#snacks">Other Snacks</a></li>
+                <li><a href="#pizza">Pizza</a></li>
+                <li><a href="#momo">MoMo</a></li>
+            </ul>
+        </div>
+        <div class="col-10">
+
+            <!-- burgers -->
+            <h2 class="text-white" id="burger">Burgers</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4 main-body">
+                {% for item in burger %}
+                <div class="col " data-aos="fade-up-left">
+                    <div class="card product-box" title="{{item.item_name}}">
+                        <img src="/{{item.item_image}}" class="card-img-top" alt="{{item.item_name}}" width="100%">
+                        <div class="card-body text-truncate ">
+                            <h5 class="card-title ">{{item.item_name}}</h5>
+                            <h5 class="card-text ">Rs. {{item.item_price}}</h5>
+                            <p>{{item.category}}</p>
+                            <a href="/itemdetails/{{item.id}}"><button class="btn btn-success rounded-pill">View
+                                    Details</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <br class="horizon">
+            <!-- sandwich -->
+            <h2 class="text-white" id="sandwich">Sandwiches</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4 main-body">
+                {% for item in sandwich %}
+                <div class="col " data-aos="fade-up-left">
+                    <div class="card product-box" title="{{item.item_name}}">
+                        <img src="/{{item.item_image}}" class="card-img-top" alt="{{item.item_name}}" width="100%">
+                        <div class="card-body text-truncate ">
+                            <h5 class="card-title ">{{item.item_name}}</h5>
+                            <h5 class="card-text ">Rs. {{item.item_price}}</h5>
+                            <p>{{item.category}}</p>
+                            <a href="/itemdetails/{{item.id}}"><button class="btn btn-success rounded-pill">View
+                                    Details</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <br class="horizon">
+            <!-- snacks -->
+            <h2 class="text-white" id="snacks">Other Snacks</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4 main-body">
+                {% for item in snacks %}
+                <div class="col " data-aos="fade-up-left">
+                    <div class="card product-box" title="{{item.item_name}}">
+                        <img src="/{{item.item_image}}" class="card-img-top" alt="{{item.item_name}}" width="100%">
+                        <div class="card-body text-truncate ">
+                            <h5 class="card-title ">{{item.item_name}}</h5>
+                            <h5 class="card-text ">Rs. {{item.item_price}}</h5>
+                            <p>{{item.category}}</p>
+                            <a href="/itemdetails/{{item.id}}"><button class="btn btn-success rounded-pill">View
+                                    Details</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <br class="horizon">
+            <!-- pizza -->
+            <h2 class="text-white" id="pizza">Pizza</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4 main-body">
+                {% for item in pizza %}
+                <div class="col " data-aos="fade-up-left">
+                    <div class="card product-box" title="{{item.item_name}}">
+                        <img src="/{{item.item_image}}" class="card-img-top" alt="{{item.item_name}}" width="100%">
+                        <div class="card-body text-truncate ">
+                            <h5 class="card-title ">{{item.item_name}}</h5>
+                            <h5 class="card-text ">Rs. {{item.item_price}}</h5>
+                            <p>{{item.category}}</p>
+                            <a href="/itemdetails/{{item.id}}"><button class="btn btn-success rounded-pill">View
+                                    Details</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <br class="horizon">
+            <!-- momo -->
+            <h2 class="text-white" id="momo">MoMo</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4 main-body">
+                {% for item in momo %}
+                <div class="col " data-aos="fade-up-left">
+                    <div class="card product-box" title="{{item.item_name}}">
+                        <img src="/{{item.item_image}}" class="card-img-top" alt="{{item.item_name}}" width="100%">
+                        <div class="card-body text-truncate ">
+                            <h5 class="card-title ">{{item.item_name}}</h5>
+                            <h5 class="card-text ">Rs. {{item.item_price}}</h5>
+                            <p>{{item.category}}</p>
+                            <a href="/itemdetails/{{item.id}}"><button class="btn btn-success rounded-pill">View
+                                    Details</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- main body end -->
+
+{% endblock %}

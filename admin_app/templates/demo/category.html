@@ -1,0 +1,41 @@
+{% extends 'layouts.html' %} {% load crispy_forms_tags %} {% block title %}
+<title>All Category</title>
+{% endblock %} {% block main_content %} {% for msg in messages %}
+{% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<div class="alert alert-success">{{msg}}</div>
+{% endif %} {% endfor %}
+<div class="container mt-4">
+    <div class="justify-content-center">
+        <div class="col-md-6">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in category %}
+                    <tr>
+                        <td>{{post.category_name}}</td>
+                        <td>
+                            <a href="/admin/updatecategory/{{post.id}}" class="btn btn-secondary">
+                                <i class="bx bxs-edit"></i>Edit
+                            </a>
+                            &nbsp;
+                            <a href="/admin/deletecategory/{{post.id}}" class="btn btn-danger"
+                                onclick="return confirm('Delete {{post.item_name}}?')">
+                                <i class="bx bxs-trash"></i>Delete
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="justify-content-center">
+        <a href="/admin/addcategory" class="btn btn-primary">Add Category</a>
+    </div>
+</div>
+{% endblock %}

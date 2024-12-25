@@ -1,0 +1,38 @@
+{% extends 'client/layouts.html' %}
+{% load static %}
+
+{% block title %}
+<title>Doge Foods || {{items.item_name}}</title>
+{% endblock %}
+
+{% block main_content %}
+
+
+
+<!-- main body  -->
+<div class="container mt-3">
+    <div class=" mb-3 p-3">
+        <div class="row g-0 d-flex justify-content-center detail-box">
+            <div class="col-md-4 p-2 shadow" data-aos="fade-up">
+                <img src="/{{items.item_image}}" class="img-fluid rounded-start" alt="{{items.item_name}}">
+            </div>
+            <div class="col-md-7 d-flex align-items-center" data-aos="fade-up-left">
+                <div class="card-body p-4 shadow product-detail">
+                    <h2 class="card-title">{{items.item_name}}</h2>
+                    <h3 class="card-text">Rs. {{items.item_price}}</h3>
+                    <h6 class="card-text">Quantity: {{items.quantity}}</h6>
+                    <h5 class="card-text">Category: {{items.category}}</h5>
+                    <h4 class="card-text text-muted">{{items.item_description}}</h4>
+                    <a href="/add_order/{{items.id}}">
+                        <button class="btn btn-warning rounded-pill">
+                            <i class="far fa-cart-plus"></i>&nbsp;Add Order
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main body end -->
+
+{% endblock %}

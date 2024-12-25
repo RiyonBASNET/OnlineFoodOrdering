@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block title %} {{section.title}} {% endblock %}
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{% static 'images/doge-food.ico' %}" type="image/x-icon" />
+
+  <!-- bootstrap css cdn link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+
+  <!-- boxicon css cnd -->
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- fontawesome cdn link css -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- aos animation css -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- custom css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+
+<body class="bg-dark">
+  <!-- header -->
+
+  <div class="container-fluid">
+    <header
+      class="container-fluid d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none px-2">
+        <img src="{% static 'images/doge-food.ico' %}" alt="" width="40" />
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="/menu" class="nav-link px-2 link-light">Menu</a></li>
+        <li><a href="/faqs" class="nav-link px-2 link-light">FAQs</a></li>
+        <li><a href="/blog" class="nav-link px-2 link-light">Blog</a></li>
+        <li><a href="/about" class="nav-link px-2 link-light">About</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        {% if user.is_authenticated %}
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+          </form>
+
+          <div class="dropdown text-end">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <img src="{% static 'images/user-icon.png' %}" alt="mdo" width="32" height="32" class="rounded-circle" />
+            </a>
+            <ul class="dropdown-menu text-small text-center">
+              <li>{{request.user.username}}</li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              {% if user.is_staff %}
+              <li>
+                <a class="dropdown-item" href="/admin/product">Products</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/admin/category">Categories</a>
+              </li>
+              {% else %}
+              <li>
+                <a class="dropdown-item" href="/myorderlist">My Order Items</a>
+              </li>
+              <li><a class="dropdown-item" href="/myorders">My Orders</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+
+              <li><a href="/change_user_password/{{request.user.username}}" class="dropdown-item">Change Password</a>
+              </li>
+              {% endif %}
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+        {% else %}
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+          </form>
+
+          <a href="/login" class="btn btn-outline-primary me-2">Login</a>
+          <a href="/register" class="btn btn-primary">Sign-up</a>
+        </div>
+        {% endif %}
+      </div>
+    </header>
+  </div>
+  <!-- header -->
+  <div class="main">
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top" style="
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+    ">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+    {% block main_content %} {% endblock %}
+  </div>
+  <!-- footer -->
+  <div class="container-fluid ">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap" />
+          </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Doge Foods, Inc</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3">
+          <a class="text-muted" href="#"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li class="ms-3">
+          <a class="text-muted" href="#"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="ms-3">
+          <a class="text-muted" href="#"><i class="fab fa-facebook"></i></a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+  <!-- footer -->
+  <script>
+    //Get the button
+    let mybutton = document.getElementById("btn-back-to-top");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    mybutton.addEventListener("click", backToTop);
+
+    function backToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <!-- bootstrap js cdn link -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <!-- aos animation js -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true,
+    });
+  </script>
+</body>
+
+</html>

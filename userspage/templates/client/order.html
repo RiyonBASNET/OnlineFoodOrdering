@@ -1,0 +1,55 @@
+{% extends 'client/layouts.html' %}
+{% load static %}
+
+{% block title %}
+<title>Doge Foods || Orders </title>
+{% endblock %}
+
+{% block main_content %}
+
+<!-- main body  -->
+<div class="container mt-4">
+    {% for msg in messages %}
+    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <div class="alert alert-success">
+        {{msg}}
+    </div>
+    {% endif %}
+    {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <div class="alert alert-danger">
+        {{msg}}
+    </div>
+    {% endif %}
+    {% endfor %}
+    <h1 class="text-muted text-center">My Orders</h1>
+    <div class="row d-flex justify-content-center">
+        <div class=" col-md-10 ">
+
+            <table class="table table-bordered table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Total Price</th>
+                        <th>Image</th>
+                        <th>Date Ordered</th>
+                        <th>Payment Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in items %}
+                    <tr>
+                        <td>{{i.items.item_name}}</td>
+                        <td>{{i.total_price}}</td>
+                        <td><img src="/{{i.items.item_image}}" alt="{{i.item_name}}" class="p-2" width="180"></td>
+                        <td>{{i.order_date}}</td>
+                        <td>{{i.payment_method}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- main body end -->
+
+{% endblock %}

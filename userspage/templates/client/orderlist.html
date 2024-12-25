@@ -1,0 +1,66 @@
+{% extends 'client/layouts.html' %}
+{% load static %}
+
+{% block title %}
+<title>Doge Foods || Order items</title>
+{% endblock %}
+
+{% block main_content %}
+
+<!-- main body  -->
+<div class="container mt-4">
+    {% for msg in messages %}
+    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <div class="alert alert-success">
+        {{msg}}
+    </div>
+    {% endif %}
+    {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <div class="alert alert-danger">
+        {{msg}}
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    {% if items|length == 0 %}
+    <h1 class="text-center text-danger shadow-lg p-5 bg-light">
+        No Orders in List
+    </h1>
+    {% else %}
+    <h1 class="text-muted text-center">My Order Items</h1>
+    <div class="row d-flex justify-content-center">
+        <div class=" col-md-10 ">
+
+            <table class="table table-bordered table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Price per unit</th>
+                        <th>Image</th>
+                        <th>Date Added</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in items %}
+                    <tr>
+                        <td>{{i.items.item_name}}</td>
+                        <td>{{i.items.item_price}}</td>
+                        <td><img src="/{{i.items.item_image}}" alt="{{i.item_name}}" class="p-2" width="180"></td>
+                        <td>{{i.created_at}}</td>
+                        <td>
+                            <a href="/remove_item/{{i.id}}" class="btn btn-danger"
+                                onclick="return confirm('Delete {{i.items.item_name}}?')">Delete</a>
+                            <a href="/orderform/{{i.items.id}}/{{i.id}}" class="btn btn-info btn-sm">Order Now</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<!-- main body end -->
+
+{% endblock %}

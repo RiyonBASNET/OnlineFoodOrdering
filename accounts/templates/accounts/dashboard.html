@@ -1,0 +1,199 @@
+{% extends 'layouts.html' %} {% load static %} {% block title %}
+<title>Admin || Dashboard</title>
+<link rel="stylesheet" href="{% static 'css/style_copy.css' %}">
+{% endblock %} {% block main_content %}
+
+<div class="container-fluid">
+  <h2 class="text-center my-3 text-muted">Admin Dashboard</h2>
+  <div class="row d-flex">
+    <div class="col-md-6 col-xl-4 mb-4">
+      <a href="#" class="text-decoration-none">
+        <div class="card shadow border-0 py-2">
+          <div class="card-body">
+            <div class="row align-items-center no-gutters">
+              <div class="col me-2">
+                <div class="text-uppercase text-primary fw-bold text-xs mb-1 text-center">
+                  <span> Total Orders </span>
+                </div>
+                <div class="text-secondary fw-bold mb-0 text-center">
+                  <span>Delivered: 0</span>
+                </div>
+                <div class="col-auto text-center">
+                  <i class="fab fa-first-order-alt fs-1 text-success"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-xl-4 mb-4">
+      <a href="#" class="text-decoration-none">
+        <div class="card shadow border-0 py-2 bg-warning">
+          <div class="card-body">
+            <div class="row align-items-center no-gutters">
+              <div class="col me-2">
+                <div class="text-uppercase text-light fw-bold text-xs mb-1 text-center">
+                  <span> Total Users </span>
+                </div>
+                <div class="text-secondary fw-bold mb-0 text-center">
+                  <span>Deactivated: 0</span>
+                </div>
+                <div class="col-auto text-center">
+                  <i class="fas fa-users fs-1 text-success"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-xl-4 mb-4">
+      <a href="#" class="text-decoration-none">
+        <div class="card shadow border-0 py-2 bg-success">
+          <div class="card-body">
+            <div class="row align-items-center no-gutters">
+              <div class="col me-2">
+                <div class="text-uppercase text-light fw-bold text-xs mb-1 text-center">
+                  <span> Total Products </span>
+                </div>
+                <div class="text-warning fw-bold mb-0 text-center">
+                  <span>Out of Stock: 0</span>
+                </div>
+                <div class="col-auto text-center">
+                  <i class="fas fa-globe fs-1 text-light"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-xl-4 mb-4">
+      <a href="#" class="text-decoration-none">
+        <div class="card shadow border-0 py-2 bg-danger">
+          <div class="card-body">
+            <div class="row align-items-center no-gutters">
+              <div class="col me-2">
+                <div class="text-uppercase text-light fw-bold text-xs mb-1 text-center">
+                  <span> Total Sales </span>
+                </div>
+                <div class="text-white fw-bold mb-0 text-center">
+                  <span>Booking: 0</span>
+                </div>
+                <div class="col-auto text-center">
+                  <i class="fas fa-globe fs-1 text-white fa-spin"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-xl-4 mb-4">
+      <a href="#" class="text-decoration-none">
+        <div class="card shadow border-0 py-2 bg-primary">
+          <div class="card-body">
+            <div class="row align-items-center no-gutters">
+              <div class="col me-2">
+                <div class="text-uppercase text-light fw-bold text-xs mb-1 text-center">
+                  <span> Admins </span>
+                </div>
+                <div class="text-white fw-bold mb-0 text-center">
+                  <span>Super Admin: 1</span>
+                </div>
+                <div class="col-auto text-center">
+                  <i class="fas fa-users fs-1 text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-xl-4 mb-4">
+      <a href="#" class="text-decoration-none">
+        <div class="card shadow border-0 py-2 bg-dark">
+          <div class="card-body">
+            <div class="row align-items-center no-gutters">
+              <div class="col me-2">
+                <div class="text-uppercase text-light fw-bold text-xs mb-1 text-center">
+                  <span> Categories </span>
+                </div>
+                <div class="text-white fw-bold mb-0 text-center">
+                  <span>Sub-Categories: 0</span>
+                </div>
+                <div class="col-auto text-center">
+                  <i class="fas fa-globe fs-1 text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-3">
+
+    <div class="card ">
+      <div class="card-body">
+        <h4 class="card-title">
+          <span class="lstick"></span>Visit Separation
+        </h4>
+        <div id="visitor" style="height: 250px; width: 100%"></div>
+        <table class="table vm font-14">
+          <tr>
+            <td class="b-0">Mobile</td>
+            <td class="text-right font-medium b-0">38.5%</td>
+          </tr>
+          <tr>
+            <td>Tablet</td>
+            <td class="text-right font-medium">30.8%</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-lg-9 col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex">
+            <div>
+              <h3 class="card-title m-b-5">
+                <span class="lstick"></span>Sales Overview
+              </h3>
+            </div>
+            <div class="ml-auto">
+              <select class="custom-select b-0">
+                <option selected="">January 2017</option>
+                <option value="1">February 2017</option>
+                <option value="2">March 2017</option>
+                <option value="3">April 2017</option>
+              </select>
+            </div>
+          </div>
+          <div
+            id="sales-overview2"
+            class="p-relative"
+            style="height: 360px"
+          ></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-12">
+     
+    </div>
+  </div>
+
+  <canvas id="myChart" style="width: 100%; max-width: 700px"></canvas> -->
+</div>
+<!-- <script src="{% static 'js/linegraph.js' %}"></script>
+<script src="{% static 'js/dashboard.js' %}"></script> -->
+{% endblock %}

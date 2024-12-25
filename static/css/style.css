@@ -1,0 +1,101 @@
+
+header{
+    background-color:rgba(0,0,0,0.68);
+    color: white  !important;
+}
+.main{
+    background: linear-gradient(to bottom, rgba(0,0,0,0.68),rgba(0,0,0,0.58),rgba(0,0,0,0.38)), url(../images/background/restaurant.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container .all-items ul {
+    list-style: none;
+}
+.all-items ul a{
+    text-decoration: none;
+    color: aqua;
+}
+.container .main_items{
+    background: none;
+}
+.container .view a{
+    text-decoration: none;
+    font-size: 20px;
+    color: aqua;
+}
+.heading{
+    color: white !important;
+}
+.horizon{
+    height: 2px;
+    background-color: whitesmoke;
+}
+.filter-box{
+    color: white;
+}
+.product-box{
+    padding: 20px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    transition: all 0.51s;
+    
+}
+.product-box:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-15px);
+
+}
+.detail-box .product-detail{
+    background-color: aliceblue;
+}
+.card-body .btn{
+    font-size: 20px;
+    /* background-color: aliceblue; */
+}
+.detail-box{
+    background-color: rgb(240, 248, 255, 0.87);
+}
+table{
+    background-color: rgb(214, 100, 100);
+}
+
+.container .about-box-top{
+    background: linear-gradient(to right, rgba(0,0,0,0.68),rgba(0,0,0,0.58),rgba(0,0,0,0.28)), url(../images/background/pizza-background.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container .about-df .about-text{
+    font-size: 17px;
+}
+footer{
+    background-color: black;
+    color: white !important;
+    margin-top: 7px;
+    margin-bottom: 0;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+footer .fab{
+    font-size: 28px;
+
+}
+
+@media screen and (max-width:1000px) {
+    .carousel img{
+        height: 400px;
+    }
+    .product-box img{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .carousel img{
+        height:250px;
+    }
+    .product-box img{
+        width: 150px;
+    }
+}
